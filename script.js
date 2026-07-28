@@ -268,10 +268,17 @@ function handleAnamneseSubmit(event) {
 
     // 1. Gerar documento PDF formatado para a Psicóloga salvar no computador/Google Drive
     const pdfTemplate = document.createElement('div');
+    pdfTemplate.id = 'pdf-render-temp';
+    pdfTemplate.style.position = 'fixed';
+    pdfTemplate.style.left = '-9999px';
+    pdfTemplate.style.top = '0';
+    pdfTemplate.style.width = '750px';
+    pdfTemplate.style.backgroundColor = '#ffffff';
     pdfTemplate.style.padding = '30px';
     pdfTemplate.style.fontFamily = 'Arial, sans-serif';
     pdfTemplate.style.color = '#33241F';
     pdfTemplate.style.lineHeight = '1.6';
+    pdfTemplate.style.zIndex = '-9999';
 
     pdfTemplate.innerHTML = `
         <div style="text-align: center; border-bottom: 2px solid #9E4B31; padding-bottom: 15px; margin-bottom: 20px;">
@@ -280,33 +287,33 @@ function handleAnamneseSubmit(event) {
             <p style="margin: 3px 0 0 0; font-size: 11px; color: #8C726A;">Atendimento Psicológico Online e Presencial</p>
         </div>
 
-        <div style="background-color: #F9EBE6; padding: 10px 15px; border-radius: 6px; margin-bottom: 20px; border-left: 4px solid #9E4B31;">
+        <div style="background-color: #F9EBE6; padding: 12px 15px; border-radius: 6px; margin-bottom: 20px; border-left: 4px solid #9E4B31;">
             <h3 style="margin: 0; color: #9E4B31; font-size: 15px;">FICHA DE ANAMNESE INICIAL & TERMO DE CONSENTIMENTO (TCLE)</h3>
             <p style="margin: 3px 0 0 0; font-size: 11px; color: #5C4740;">Data do Registro: ${dataHoje} às ${horaHoje}</p>
         </div>
 
         <div style="margin-bottom: 20px;">
-            <h4 style="color: #9E4B31; border-bottom: 1px solid #E07A5F; padding-bottom: 4px; font-size: 14px; margin-bottom: 10px;">1. DADOS PESSOAIS DO PACIENTE</h4>
-            <p style="margin: 4px 0; font-size: 12px;"><strong>Nome Completo:</strong> ${nome}</p>
-            <p style="margin: 4px 0; font-size: 12px;"><strong>Data de Nascimento:</strong> ${nascFormatada}</p>
-            <p style="margin: 4px 0; font-size: 12px;"><strong>CPF:</strong> ${cpf}</p>
-            <p style="margin: 4px 0; font-size: 12px;"><strong>WhatsApp:</strong> ${whatsapp}</p>
-            <p style="margin: 4px 0; font-size: 12px;"><strong>E-mail:</strong> ${email}</p>
-            <p style="margin: 4px 0; font-size: 12px;"><strong>Cidade/Estado:</strong> ${cidade}</p>
+            <h4 style="color: #9E4B31; border-bottom: 1px solid #E07A5F; padding-bottom: 4px; font-size: 13px; margin-bottom: 10px;">1. DADOS PESSOAIS DO PACIENTE</h4>
+            <p style="margin: 4px 0; font-size: 12px; color: #33241F;"><strong>Nome Completo:</strong> ${nome}</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #33241F;"><strong>Data de Nascimento:</strong> ${nascFormatada}</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #33241F;"><strong>CPF:</strong> ${cpf}</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #33241F;"><strong>WhatsApp:</strong> ${whatsapp}</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #33241F;"><strong>E-mail:</strong> ${email}</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #33241F;"><strong>Cidade/Estado:</strong> ${cidade}</p>
         </div>
 
         <div style="margin-bottom: 20px;">
-            <h4 style="color: #9E4B31; border-bottom: 1px solid #E07A5F; padding-bottom: 4px; font-size: 14px; margin-bottom: 10px;">2. CONTATO DE EMERGÊNCIA</h4>
-            <p style="margin: 4px 0; font-size: 12px;"><strong>Nome do Contato:</strong> ${emergNome}</p>
-            <p style="margin: 4px 0; font-size: 12px;"><strong>Grau de Parentesco / Relação:</strong> ${emergRelacao}</p>
-            <p style="margin: 4px 0; font-size: 12px;"><strong>Telefone de Emergência:</strong> ${emergTel}</p>
+            <h4 style="color: #9E4B31; border-bottom: 1px solid #E07A5F; padding-bottom: 4px; font-size: 13px; margin-bottom: 10px;">2. CONTATO DE EMERGÊNCIA</h4>
+            <p style="margin: 4px 0; font-size: 12px; color: #33241F;"><strong>Nome do Contato:</strong> ${emergNome}</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #33241F;"><strong>Grau de Parentesco / Relação:</strong> ${emergRelacao}</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #33241F;"><strong>Telefone de Emergência:</strong> ${emergTel}</p>
         </div>
 
         <div style="margin-bottom: 20px;">
-            <h4 style="color: #9E4B31; border-bottom: 1px solid #E07A5F; padding-bottom: 4px; font-size: 14px; margin-bottom: 10px;">3. HISTÓRICO TERAPÊUTICO & QUEIXA PRINCIPAL</h4>
-            <p style="margin: 4px 0; font-size: 12px;"><strong>Já fez terapia anteriormente?</strong> ${jaFezTerapia}</p>
-            <p style="margin: 4px 0; font-size: 12px;"><strong>Uso de medicação psiquiátrica:</strong> ${medicacao}</p>
-            <p style="margin: 4px 0; font-size: 12px;"><strong>Motivo da Busca:</strong> ${motivo ? motivo : 'Não informado'}</p>
+            <h4 style="color: #9E4B31; border-bottom: 1px solid #E07A5F; padding-bottom: 4px; font-size: 13px; margin-bottom: 10px;">3. HISTÓRICO TERAPÊUTICO & QUEIXA PRINCIPAL</h4>
+            <p style="margin: 4px 0; font-size: 12px; color: #33241F;"><strong>Já fez terapia anteriormente?</strong> ${jaFezTerapia}</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #33241F;"><strong>Uso de medicação psiquiátrica:</strong> ${medicacao}</p>
+            <p style="margin: 4px 0; font-size: 12px; color: #33241F;"><strong>Motivo da Busca:</strong> ${motivo ? motivo : 'Não informado'}</p>
         </div>
 
         <div style="background-color: #F8F8F8; padding: 12px; border-radius: 6px; border: 1px solid #DDD; font-size: 11px; margin-top: 25px;">
@@ -316,19 +323,30 @@ function handleAnamneseSubmit(event) {
         </div>
     `;
 
+    document.body.appendChild(pdfTemplate);
+
     // Nome limpo para o arquivo PDF
     const nomeLimpo = nome.replace(/[^a-zA-Z0-9]/g, '_');
     const opt = {
         margin: 10,
         filename: `Ficha_Anamnese_${nomeLimpo}.pdf`,
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
+        html2canvas: { scale: 2, logging: false },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
 
-    // Baixar o arquivo PDF automaticamente
+    // Baixar o arquivo PDF com segurança
     if (typeof html2pdf !== 'undefined') {
-        html2pdf().set(opt).from(pdfTemplate).save();
+        html2pdf().set(opt).from(pdfTemplate).save().then(() => {
+            if (document.body.contains(pdfTemplate)) {
+                document.body.removeChild(pdfTemplate);
+            }
+        }).catch(err => {
+            console.error("Erro ao gerar PDF:", err);
+            if (document.body.contains(pdfTemplate)) {
+                document.body.removeChild(pdfTemplate);
+            }
+        });
     }
 
     // 2. Formatar mensagem resumida do WhatsApp
@@ -346,7 +364,8 @@ Dra. Laura Detoni Queiroz (CRP 12/13874)
 💬 *Histórico:* Já fez terapia: ${jaFezTerapia} | Medicação: ${medicacao}
 📝 *Motivo:* ${motivo ? motivo : 'Não especificado'}
 
-📄 *O arquivo PDF completo com a ficha técnica e o TCLE foi gerado e baixado no dispositivo.*
+📄 *O PDF do Prontuário Completo com o TCLE Assinado foi gerado automaticamente no dispositivo.*
+📎 *Por favor, clique no clipe de anexo abaixo para me enviar o PDF gerado.*
 ✅ *Aceite do TCLE e Sigilo Profissional confirmado.*`;
 
     const phone = "5548984089109";
@@ -354,4 +373,5 @@ Dra. Laura Detoni Queiroz (CRP 12/13874)
 
     window.open(`https://api.whatsapp.com/send/?phone=${phone}&text=${encodedText}`, '_blank');
 }
+
 
