@@ -569,6 +569,156 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
+   Typeform / Google Forms Style Wizard Section
+   ========================================================================== */
+.wizard-section {
+    padding: 60px 0 90px;
+    background-color: var(--bg-alt);
+}
+
+.wizard-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.wizard-progress-card {
+    background-color: var(--bg-card);
+    padding: 1.5rem 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(158, 75, 49, 0.1);
+    margin-bottom: 2rem;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background-color: var(--primary-light);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    transition: width 0.4s ease-in-out;
+    border-radius: var(--radius-full);
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.wizard-card {
+    background-color: var(--bg-card);
+    padding: 3.5rem 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(158, 75, 49, 0.12);
+}
+
+.wizard-step {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.wizard-step.active {
+    display: block;
+    opacity: 1;
+    animation: fadeInStep 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeInStep {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.wizard-question-header {
+    margin-bottom: 2rem;
+}
+
+.q-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.wizard-question-header h2 {
+    font-size: 1.75rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.wizard-question-header p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.wizard-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(158, 75, 49, 0.1);
+}
+
+.wizard-actions.flex-end {
+    justify-content: flex-end;
+}
+
+.tcle-card-box {
+    background-color: var(--bg-body);
+    padding: 1.75rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(158, 75, 49, 0.15);
+}
+
+.tcle-badge {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tcle-card-box ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.925rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 576px) {
+    .wizard-card {
+        padding: 2rem 1.5rem;
+    }
+    .wizard-actions {
+        flex-direction: column-reverse;
+    }
+    .wizard-actions .btn {
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
    Anamnese Section (Ficha & TCLE Digital)
    ========================================================================== */
 .anamnese-section {

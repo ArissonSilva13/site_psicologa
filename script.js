@@ -164,6 +164,72 @@ function handleQuickBooking(event) {
 }
 
 /**
+ * Typeform / Google Forms Style Wizard Navigation
+ */
+let currentStepNumber = 1;
+
+function updateWizardProgress(step) {
+    currentStepNumber = step;
+    const progressFill = document.getElementById('wizard-progress-bar');
+    const stepCounter = document.getElementById('step-counter');
+    const stepPercentage = document.getElementById('step-percentage');
+
+    if (!progressFill) return;
+
+    const percentages = { 1: 25, 2: 50, 3: 75, 4: 100 };
+    const percentage = percentages[step] || 25;
+
+    progressFill.style.width = `${percentage}%`;
+    stepCounter.textContent = `Etapa ${step} de 4`;
+    stepPercentage.textContent = `${percentage}% concluído`;
+}
+
+function nextWizardStep(targetStep) {
+    // Validar campos obrigatórios do passo atual antes de prosseguir
+    const currentStepEl = document.getElementById(`wizard-step-${targetStep - 1}`);
+    if (currentStepEl) {
+        const requiredInputs = currentStepEl.querySelectorAll('[required]');
+        for (let input of requiredInputs) {
+            if (!input.checkValidity()) {
+                input.reportValidity();
+                return;
+            }
+        }
+    }
+
+    // Ocultar todos os passos
+    document.querySelectorAll('.wizard-step').forEach(step => {
+        step.classList.remove('active');
+    });
+
+    // Mostrar o passo alvo
+    const targetStepEl = document.getElementById(`wizard-step-${targetStep}`);
+    if (targetStepEl) {
+        targetStepEl.classList.add('active');
+        updateWizardProgress(targetStep);
+        window.scrollTo({ top: 250, behavior: 'smooth' });
+    }
+}
+
+function prevWizardStep(targetStep) {
+    document.querySelectorAll('.wizard-step').forEach(step => {
+        step.classList.remove('active');
+    });
+
+    const targetStepEl = document.getElementById(`wizard-step-${targetStep}`);
+    if (targetStepEl) {
+        targetStepEl.classList.add('active');
+        updateWizardProgress(targetStep);
+        window.scrollTo({ top: 250, behavior: 'smooth' });
+    }
+}
+
+function handleWizardSubmit(event) {
+    event.preventDefault();
+    handleAnamneseSubmit(event);
+}
+
+/**
  * Ficha de Anamnese & TCLE Digital
  */
 function handleAnamneseSubmit(event) {
