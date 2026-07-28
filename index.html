@@ -29,25 +29,25 @@
     <!-- Header / Navbar -->
     <header class="header" id="header">
         <div class="container header-container">
-            <a href="#inicio" class="logo">
+            <a href="index.html" class="logo">
                 <span class="logo-title">Dra. Laura Detoni</span>
                 <span class="logo-subtitle">Psicóloga Clínica • CRP 12/13874</span>
             </a>
 
             <nav class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
-                    <li><a href="#inicio" class="nav-link active">Início</a></li>
-                    <li><a href="#como-funciona" class="nav-link">Como Funciona</a></li>
-                    <li><a href="#sobre-mim" class="nav-link">Sobre Mim</a></li>
-                    <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
-                    <li><a href="#anamnese" class="nav-link">Ficha & Termo</a></li>
-                    <li><a href="#faq" class="nav-link">Dúvidas</a></li>
+                    <li><a href="index.html" class="nav-link active">Início</a></li>
+                    <li><a href="index.html#como-funciona" class="nav-link">Como Funciona</a></li>
+                    <li><a href="index.html#sobre-mim" class="nav-link">Sobre Mim</a></li>
+                    <li><a href="agendamento.html" class="nav-link">Agendar Horário</a></li>
+                    <li><a href="anamnese.html" class="nav-link">Ficha & Termo</a></li>
+                    <li><a href="index.html#faq" class="nav-link">Dúvidas</a></li>
                 </ul>
             </nav>
 
             <div class="header-actions">
-                <a href="https://api.whatsapp.com/send/?phone=5548984089109&text=Ol%C3%A1%20Laura!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20para%20agendar%20uma%20sess%C3%A3o." target="_blank" class="btn btn-primary btn-nav">
-                    <i class="fa-brands fa-whatsapp"></i> Agendar Consulta
+                <a href="agendamento.html" class="btn btn-primary btn-nav">
+                    <i class="fa-regular fa-calendar-check"></i> Agendar Consulta
                 </a>
                 <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir Menu">
                     <i class="fa-solid fa-bars"></i>
@@ -70,8 +70,8 @@
                     Aqui você encontra um espaço seguro, acolhedor e profissional para cuidar da sua saúde emocional com leveza, equilíbrio e propósito. Meu compromisso é te ajudar a encontrar clareza em meio aos desafios da vida.
                 </p>
                 <div class="hero-buttons">
-                    <a href="https://api.whatsapp.com/send/?phone=5548984089109&text=Ol%C3%A1%20Laura!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20para%20agendar%20uma%20sess%C3%A3o." target="_blank" class="btn btn-primary btn-lg">
-                        <i class="fa-brands fa-whatsapp"></i> Agendar Sessão via WhatsApp
+                    <a href="agendamento.html" class="btn btn-primary btn-lg">
+                        <i class="fa-regular fa-calendar-check"></i> Escolher Horário na Agenda
                     </a>
                     <a href="#sobre-mim" class="btn btn-secondary btn-lg">
                         <i class="fa-regular fa-user"></i> Conhecer Trajetória
@@ -163,8 +163,8 @@
                     <p>
                         Através de uma escuta empática e fundamentada na <strong>Terapia Cognitivo-Comportamental (TCC)</strong>, vamos identificar padrões de pensamento que causam sofrimento e construir juntos ferramentas práticas para você enfrentar os desafios com mais autonomia, clareza e segurança.
                     </p>
-                    <a href="https://api.whatsapp.com/send/?phone=5548984089109&text=Ol%C3%A1%20Laura!%20Gostaria%20de%20saber%20mais%20sobre%20como%20funciona%20a%20terapia." target="_blank" class="btn btn-light">
-                        <i class="fa-brands fa-whatsapp"></i> Iniciar Meu Processo Terapêutico
+                    <a href="agendamento.html" class="btn btn-light">
+                        <i class="fa-regular fa-calendar-check"></i> Agendar Minha Primeira Sessão
                     </a>
                 </div>
             </div>
@@ -214,71 +214,9 @@
                         </div>
                         <h3>Sessões Individuais de 50 minutos</h3>
                         <p>Horários flexíveis adaptados à sua rotina. Escolha o melhor dia e horário sincronizado com a agenda.</p>
-                        <a href="#agendamento-online" class="btn btn-primary w-100">
-                            <i class="fa-regular fa-calendar-check"></i> Ver Disponibilidade & Agendar
+                        <a href="agendamento.html" class="btn btn-primary w-100">
+                            <i class="fa-regular fa-calendar-check"></i> Ver Disponibilidade na Agenda
                         </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção de Agendamento Integrado (Google Agenda) -->
-    <section class="booking-section" id="agendamento-online">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-tag"><i class="fa-solid fa-calendar-days"></i> Disponibilidade em Tempo Real</span>
-                <h2 class="section-title">Escolha o Melhor Horário para Sua Sessão</h2>
-                <p class="section-subtitle">Consulte os horários livres sincronizados diretamente com a agenda do consultório.</p>
-            </div>
-
-            <div class="booking-wrapper">
-                <div class="booking-card">
-                    <div class="booking-header">
-                        <div class="booking-badge"><i class="fa-brands fa-google"></i> Google Agenda Sincronizado</div>
-                        <h3>Selecione o dia e horário de sua preferência</h3>
-                        <p>Abaixo você pode consultar as vagas abertas ou selecionar um horário para agendar rapidamente pelo WhatsApp.</p>
-                    </div>
-
-                    <!-- Widget de Agendamento Interativo -->
-                    <div class="booking-widget-container">
-                        <div class="quick-schedule-box">
-                            <form id="quick-booking-form" onsubmit="handleQuickBooking(event)">
-                                <div class="form-grid">
-                                    <div class="form-group">
-                                        <label for="booking-date"><i class="fa-regular fa-calendar"></i> Escolha o Dia:</label>
-                                        <input type="date" id="booking-date" class="form-control" required min="2026-07-28">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="booking-time"><i class="fa-regular fa-clock"></i> Escolha o Horário:</label>
-                                        <select id="booking-time" class="form-control" required>
-                                            <option value="">Selecione um horário...</option>
-                                            <option value="08:00">08:00</option>
-                                            <option value="09:00">09:00</option>
-                                            <option value="10:00">10:00</option>
-                                            <option value="11:00">11:00</option>
-                                            <option value="14:00">14:00</option>
-                                            <option value="15:00">15:00</option>
-                                            <option value="16:00">16:00</option>
-                                            <option value="17:00">17:00</option>
-                                            <option value="18:00">18:00</option>
-                                            <option value="19:00">19:00</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">
-                                    <i class="fa-brands fa-whatsapp"></i> Confirmar Disponibilidade no WhatsApp
-                                </button>
-                            </form>
-                        </div>
-
-                        <!-- Iframe Embed Placeholder para o Google Agenda / Calendly / Cal.com -->
-                        <div class="google-calendar-embed-container" id="calendar-embed-container" style="display: none;">
-                            <!-- O link da página de agendamento do Google Agenda ou Calendly será carregado aqui -->
-                            <iframe id="google-calendar-iframe" src="" style="border: 0; width: 100%; height: 600px; border-radius: var(--radius-md);" frameborder="0" scrolling="no"></iframe>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -396,139 +334,9 @@
                     </div>
                 </div>
 
-                <a href="https://api.whatsapp.com/send/?phone=5548984089109&text=Ol%C3%A1%20Laura!%20Li%20seu%20sobre%20mim%20e%20gostaria%20de%20agendar%20uma%20sess%C3%A3o." target="_blank" class="btn btn-primary mt-4">
-                    <i class="fa-brands fa-whatsapp"></i> Agendar Consulta com Laura
+                <a href="agendamento.html" class="btn btn-primary mt-4">
+                    <i class="fa-regular fa-calendar-check"></i> Agendar Consulta com Laura
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção Ficha de Anamnese & Termo de Consentimento Digital (TCLE) -->
-    <section class="anamnese-section" id="anamnese">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-tag"><i class="fa-solid fa-clipboard-check"></i> Primeira Consulta / Cadastro</span>
-                <h2 class="section-title">Ficha de Anamnese & Termo de Consentimento</h2>
-                <p class="section-subtitle">Preencha seus dados iniciais de forma 100% segura e sigilosa de acordo com a Resolução CFP nº 11/2018.</p>
-            </div>
-
-            <div class="anamnese-wrapper">
-                <div class="anamnese-card">
-                    <form id="anamnese-form" onsubmit="handleAnamneseSubmit(event)">
-                        <!-- Passo 1: Dados Pessoais -->
-                        <div class="form-step">
-                            <div class="step-title">
-                                <span class="step-number">1</span>
-                                <h3>Dados Pessoais do Paciente</h3>
-                            </div>
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="ana-nome"><i class="fa-regular fa-user"></i> Nome Completo:*</label>
-                                    <input type="text" id="ana-nome" class="form-control" placeholder="Seu nome completo" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="ana-nasc"><i class="fa-regular fa-calendar"></i> Data de Nascimento:*</label>
-                                    <input type="date" id="ana-nasc" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="ana-cpf"><i class="fa-regular fa-id-card"></i> CPF:*</label>
-                                    <input type="text" id="ana-cpf" class="form-control" placeholder="000.000.000-00" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="ana-whatsapp"><i class="fa-brands fa-whatsapp"></i> Telefone/WhatsApp:*</label>
-                                    <input type="tel" id="ana-whatsapp" class="form-control" placeholder="(48) 99999-9999" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="ana-email"><i class="fa-regular fa-envelope"></i> E-mail:*</label>
-                                    <input type="email" id="ana-email" class="form-control" placeholder="seuemail@exemplo.com" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="ana-cidade"><i class="fa-solid fa-location-dot"></i> Cidade / Estado:*</label>
-                                    <input type="text" id="ana-cidade" class="form-control" placeholder="Ex: Florianópolis / SC" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Passo 2: Contato de Emergência -->
-                        <div class="form-step mt-4">
-                            <div class="step-title">
-                                <span class="step-number">2</span>
-                                <h3>Contato de Emergência</h3>
-                            </div>
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="ana-emerg-nome"><i class="fa-solid fa-phone"></i> Nome do Contato de Emergência:*</label>
-                                    <input type="text" id="ana-emerg-nome" class="form-control" placeholder="Nome do familiar ou pessoa de confiança" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="ana-emerg-relacao"><i class="fa-solid fa-heart"></i> Grau de Parentesco / Relação:*</label>
-                                    <input type="text" id="ana-emerg-relacao" class="form-control" placeholder="Ex: Mãe, Cônjuge, Irmão, Amigo" required>
-                                </div>
-                                <div class="form-group form-grid-full">
-                                    <label for="ana-emerg-tel"><i class="fa-solid fa-mobile-screen"></i> Telefone do Contato de Emergência:*</label>
-                                    <input type="tel" id="ana-emerg-tel" class="form-control" placeholder="(00) 00000-0000" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Passo 3: Histórico e Queixa Principal -->
-                        <div class="form-step mt-4">
-                            <div class="step-title">
-                                <span class="step-number">3</span>
-                                <h3>Histórico Terapêutico & Motivo da Busca</h3>
-                            </div>
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="ana-ja-fez-terapia"><i class="fa-solid fa-comments"></i> Já fez terapia anteriormente?</label>
-                                    <select id="ana-ja-fez-terapia" class="form-control">
-                                        <option value="Não">Não, é minha primeira vez</option>
-                                        <option value="Sim">Sim, já fiz anteriormente</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="ana-medicacao"><i class="fa-solid fa-pills"></i> Faz uso de medicação psiquiátrica?</label>
-                                    <select id="ana-medicacao" class="form-control">
-                                        <option value="Não">Não faço uso</option>
-                                        <option value="Sim">Sim (especificar na mensagem)</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group mt-3">
-                                <label for="ana-motivo"><i class="fa-solid fa-pen-to-square"></i> Qual o principal motivo pela busca do atendimento psicológico?</label>
-                                <textarea id="ana-motivo" class="form-control" rows="3" placeholder="Conte brevemente o que você busca trabalhar na terapia (ex: ansiedade, estresse, autoconhecimento, luto, etc.)..."></textarea>
-                            </div>
-                        </div>
-
-                        <!-- Passo 4: Termo de Consentimento Livre e Esclarecido (TCLE) -->
-                        <div class="form-step mt-4">
-                            <div class="step-title">
-                                <span class="step-number">4</span>
-                                <h3>Termo de Consentimento e Sigilo Profissional (TCLE)</h3>
-                            </div>
-                            
-                            <div class="tcle-box">
-                                <h4>Declaração de Sigilo & Condições de Atendimento Online</h4>
-                                <ul>
-                                    <li><strong>1. Sigilo Profissional:</strong> Todas as informações fornecidas durante as sessões são estritamente confidenciais, protegidas pelo Código de Ética do Psicólogo (CFP).</li>
-                                    <li><strong>2. Ambiente Reservado:</strong> O paciente compromete-se a realizar as sessões online em local privado, silencioso e sem interrupções, utilizando fones de ouvido para sua própria privacidade.</li>
-                                    <li><strong>3. Política de Cancelamento:</strong> Cancelamentos ou reagendamentos devem ser comunicados com no mínimo 24 horas de antecedência.</li>
-                                    <li><strong>4. Plataforma Segura:</strong> As sessões serão realizadas via plataforma criptografada (Google Meet / Zoom).</li>
-                                </ul>
-                            </div>
-
-                            <div class="checkbox-group mt-3">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="ana-aceito-termo" required>
-                                    <span>Li e concordo com o <strong>Termo de Consentimento Livre e Esclarecido (TCLE)</strong> e com o sigilo profissional da Dra. Laura Detoni Queiroz (CRP 12/13874).*</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-xl w-100 mt-4">
-                            <i class="fa-brands fa-whatsapp"></i> Enviar Ficha de Cadastro & Agendar no WhatsApp
-                        </button>
-                    </form>
-                </div>
             </div>
         </div>
     </section>
@@ -569,7 +377,7 @@
                         <i class="fa-solid fa-plus faq-icon"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Conforme o Código de Ética do Conselho Federal de Psicologia (CFP), não é permitida a divulgação pública de valores de honorários. Para receber todas as informações sobre valores, pacotes e formas de pagamento, clique no botão abaixo para falar comigo diretamente no WhatsApp.</p>
+                        <p>Conforme o Código de Ética do Conselho Federal de Psicologia (CFP), não é permitida a divulgação pública de valores de honorários. Para receber todas as informações sobre valores, pacotes e formas de pagamento, acesse a página de agendamento ou entre em contato pelo WhatsApp.</p>
                         <a href="https://api.whatsapp.com/send/?phone=5548984089109&text=Ol%C3%A1%20Laura!%20Gostaria%20de%20saber%20os%20valores%20das%20consultas." target="_blank" class="btn btn-secondary btn-sm mt-3">
                             <i class="fa-brands fa-whatsapp"></i> Consultar Valores no WhatsApp
                         </a>
@@ -582,7 +390,7 @@
                         <i class="fa-solid fa-plus faq-icon"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>O agendamento é feito de forma simples e rápida através do WhatsApp. Basta clicar em qualquer botão do site para entrar em contato. Alinharemos o melhor dia e horário para você e tiraremos qualquer dúvida prévia.</p>
+                        <p>O agendamento é simples e rápido. Você pode consultar os horários na <a href="agendamento.html" style="color: var(--primary-color); font-weight: 600; text-decoration: underline;">página de agendamento online</a> ou preencher a <a href="anamnese.html" style="color: var(--primary-color); font-weight: 600; text-decoration: underline;">ficha de cadastro inicial (TCLE)</a>.</p>
                     </div>
                 </div>
 
@@ -606,8 +414,8 @@
                 <span class="cta-tag"><i class="fa-solid fa-leaf"></i> Dê o primeiro passo</span>
                 <h2>Sua saúde emocional merece esse cuidado.</h2>
                 <p>Agende sua sessão agora mesmo e comece a construir uma relação mais leve e saudável com suas emoções.</p>
-                <a href="https://api.whatsapp.com/send/?phone=5548984089109&text=Ol%C3%A1%20Laura!%20Decidi%20dar%20o%20primeiro%20passo%20e%20gostaria%20de%20agendar%20uma%20sess%C3%A3o." target="_blank" class="btn btn-primary btn-xl">
-                    <i class="fa-brands fa-whatsapp"></i> Agendar Minha Consulta Agora
+                <a href="agendamento.html" class="btn btn-primary btn-xl">
+                    <i class="fa-regular fa-calendar-check"></i> Agendar Minha Consulta Agora
                 </a>
             </div>
         </div>
@@ -617,7 +425,7 @@
     <footer class="footer">
         <div class="container footer-container">
             <div class="footer-brand">
-                <a href="#inicio" class="footer-logo">Dra. Laura Detoni Queiroz</a>
+                <a href="index.html" class="footer-logo">Dra. Laura Detoni Queiroz</a>
                 <p class="footer-crp">Psicóloga Clínica • CRP 12/13874</p>
                 <p class="footer-desc">Espaço seguro para acolhimento emocional e autoconhecimento através da Terapia Cognitivo-Comportamental.</p>
             </div>
@@ -625,11 +433,11 @@
             <div class="footer-links">
                 <h4>Navegação rápida</h4>
                 <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#como-funciona">Como Funciona</a></li>
-                    <li><a href="#sobre-mim">Sobre Mim</a></li>
-                    <li><a href="#depoimentos">Depoimentos</a></li>
-                    <li><a href="#faq">Dúvidas Frequentes</a></li>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#como-funciona">Como Funciona</a></li>
+                    <li><a href="index.html#sobre-mim">Sobre Mim</a></li>
+                    <li><a href="agendamento.html">Agendar Horário</a></li>
+                    <li><a href="anamnese.html">Ficha & Termo (TCLE)</a></li>
                 </ul>
             </div>
 

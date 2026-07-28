@@ -307,6 +307,25 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
+   Page Banners (Páginas Internas - Agendamento e Anamnese)
+   ========================================================================== */
+.page-banner {
+    padding-top: 150px;
+    padding-bottom: 50px;
+    background: linear-gradient(180deg, rgba(249, 235, 230, 0.6) 0%, rgba(253, 251, 248, 1) 100%);
+    border-bottom: 1px solid rgba(158, 75, 49, 0.08);
+}
+
+.page-banner .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.page-banner .section-subtitle {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
    Hero Section
    ========================================================================== */
 .hero {

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Horário | Dra. Laura Detoni Queiroz - CRP 12/13874</title>
+    <meta name="description" content="Consulte a disponibilidade em tempo real e agende sua sessão de psicologia online com a Dra. Laura Detoni Queiroz.">
+    
+    <!-- Google Fonts Minimalistas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-title">Dra. Laura Detoni</span>
+                <span class="logo-subtitle">Psicóloga Clínica • CRP 12/13874</span>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="index.html#como-funciona" class="nav-link">Como Funciona</a></li>
+                    <li><a href="index.html#sobre-mim" class="nav-link">Sobre Mim</a></li>
+                    <li><a href="agendamento.html" class="nav-link active">Agendar Horário</a></li>
+                    <li><a href="anamnese.html" class="nav-link">Ficha & Termo</a></li>
+                    <li><a href="index.html#faq" class="nav-link">Dúvidas</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="anamnese.html" class="btn btn-secondary btn-nav">
+                    <i class="fa-solid fa-clipboard-check"></i> Preencher Ficha
+                </a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header Banner da Página -->
+    <section class="page-banner">
+        <div class="container text-center">
+            <span class="section-tag"><i class="fa-solid fa-calendar-days"></i> Sincronização em Tempo Real</span>
+            <h1 class="section-title">Agendamento de Consulta</h1>
+            <p class="section-subtitle">Escolha o melhor dia e horário para a sua sessão de psicologia online.</p>
+        </div>
+    </section>
+
+    <!-- Seção de Agendamento Integrado (Google Agenda) -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-wrapper">
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <div class="booking-badge"><i class="fa-brands fa-google"></i> Google Agenda Sincronizado</div>
+                        <h3>Selecione o dia e horário de sua preferência</h3>
+                        <p>Escolha o horário desejado para confirmar a disponibilidade diretamente no WhatsApp do consultório.</p>
+                    </div>
+
+                    <!-- Widget de Agendamento Interativo -->
+                    <div class="booking-widget-container">
+                        <div class="quick-schedule-box">
+                            <form id="quick-booking-form" onsubmit="handleQuickBooking(event)">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="booking-date"><i class="fa-regular fa-calendar"></i> Escolha o Dia:*</label>
+                                        <input type="date" id="booking-date" class="form-control" required min="2026-07-28">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="booking-time"><i class="fa-regular fa-clock"></i> Escolha o Horário:*</label>
+                                        <select id="booking-time" class="form-control" required>
+                                            <option value="">Selecione um horário...</option>
+                                            <option value="08:00">08:00</option>
+                                            <option value="09:00">09:00</option>
+                                            <option value="10:00">10:00</option>
+                                            <option value="11:00">11:00</option>
+                                            <option value="14:00">14:00</option>
+                                            <option value="15:00">15:00</option>
+                                            <option value="16:00">16:00</option>
+                                            <option value="17:00">17:00</option>
+                                            <option value="18:00">18:00</option>
+                                            <option value="19:00">19:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-lg w-100 mt-4">
+                                    <i class="fa-brands fa-whatsapp"></i> Confirmar Horário no WhatsApp
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Iframe Embed Placeholder para o Google Agenda / Calendly / Cal.com -->
+                        <div class="google-calendar-embed-container" id="calendar-embed-container" style="display: none; margin-top: 2rem;">
+                            <iframe id="google-calendar-iframe" src="" style="border: 0; width: 100%; height: 600px; border-radius: var(--radius-md);" frameborder="0" scrolling="no"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="booking-footer-info mt-4 text-center">
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                            <i class="fa-solid fa-circle-info"></i> É a sua primeira consulta? Você também pode preencher previamente a <a href="anamnese.html" style="color: var(--primary-color); font-weight: 600; text-decoration: underline;">Ficha de Anamnese & Termo (TCLE)</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">Dra. Laura Detoni Queiroz</a>
+                <p class="footer-crp">Psicóloga Clínica • CRP 12/13874</p>
+                <p class="footer-desc">Espaço seguro para acolhimento emocional e autoconhecimento através da Terapia Cognitivo-Comportamental.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Navegação rápida</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#como-funciona">Como Funciona</a></li>
+                    <li><a href="index.html#sobre-mim">Sobre Mim</a></li>
+                    <li><a href="agendamento.html">Agendar Horário</a></li>
+                    <li><a href="anamnese.html">Ficha & Termo (TCLE)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contato</h4>
+                <p><i class="fa-brands fa-whatsapp"></i> (48) 98408-9109</p>
+                <p><i class="fa-solid fa-laptop"></i> Atendimento Online (Brasil e Exterior)</p>
+                <a href="https://api.whatsapp.com/send/?phone=5548984089109&text=Ol%C3%A1%20Laura!%20Vim%20pelo%20site." target="_blank" class="btn btn-outline btn-sm mt-2">
+                    <i class="fa-brands fa-whatsapp"></i> Enviar Mensagem
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center">
+            <div class="container">
+                <p>© 2026 Dra. Laura Detoni Queiroz. Todos os direitos reservados. | CRP 12/13874</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Widget -->
+    <div class="whatsapp-float">
+        <a href="https://api.whatsapp.com/send/?phone=5548984089109&text=Ol%C3%A1%20Laura!%20Vim%20pelo%20seu%20site." target="_blank" class="whatsapp-btn" aria-label="Conversar no WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="pulse-ring"></span>
+        </a>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
