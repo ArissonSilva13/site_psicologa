@@ -162,3 +162,59 @@ function handleQuickBooking(event) {
 
     window.open(`https://api.whatsapp.com/send/?phone=${phone}&text=${encodedText}`, '_blank');
 }
+
+/**
+ * Ficha de Anamnese & TCLE Digital
+ */
+function handleAnamneseSubmit(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById('ana-nome').value.trim();
+    const nasc = document.getElementById('ana-nasc').value;
+    const cpf = document.getElementById('ana-cpf').value.trim();
+    const whatsapp = document.getElementById('ana-whatsapp').value.trim();
+    const email = document.getElementById('ana-email').value.trim();
+    const cidade = document.getElementById('ana-cidade').value.trim();
+
+    const emergNome = document.getElementById('ana-emerg-nome').value.trim();
+    const emergRelacao = document.getElementById('ana-emerg-relacao').value.trim();
+    const emergTel = document.getElementById('ana-emerg-tel').value.trim();
+
+    const jaFezTerapia = document.getElementById('ana-ja-fez-terapia').value;
+    const medicacao = document.getElementById('ana-medicacao').value;
+    const motivo = document.getElementById('ana-motivo').value.trim();
+    const aceitoTermo = document.getElementById('ana-aceito-termo').checked;
+
+    if (!aceitoTermo) {
+        alert('Por favor, confirme que você concorda com o Termo de Consentimento Livre e Esclarecido (TCLE).');
+        return;
+    }
+
+    // Formatar data de nascimento YYYY-MM-DD para DD/MM/YYYY
+    let nascFormatada = nasc;
+    if (nasc && nasc.includes('-')) {
+        const p = nasc.split('-');
+        nascFormatada = `${p[2]}/${p[1]}/${p[0]}`;
+    }
+
+    const mensagem = `📋 *FICHA DE CADASTRO & TCLE DIGITAL*
+Dra. Laura Detoni Queiroz (CRP 12/13874)
+
+👤 *Paciente:* ${nome}
+📅 *Nascimento:* ${nascFormatada}
+🆔 *CPF:* ${cpf}
+📱 *WhatsApp:* ${whatsapp}
+📧 *E-mail:* ${email}
+🏙️ *Cidade/UF:* ${cidade}
+
+🚨 *Contato de Emergência:* ${emergNome} (${emergRelacao} - Tel: ${emergTel})
+💬 *Histórico:* Já fez terapia: ${jaFezTerapia} | Medicação: ${medicacao}
+📝 *Motivo:* ${motivo ? motivo : 'Não especificado'}
+
+✅ *Declaro que li e concordo com o Termo de Consentimento Livre e Esclarecido (TCLE) e Sigilo Profissional.*`;
+
+    const phone = "5548984089109";
+    const encodedText = encodeURIComponent(mensagem);
+
+    window.open(`https://api.whatsapp.com/send/?phone=${phone}&text=${encodedText}`, '_blank');
+}

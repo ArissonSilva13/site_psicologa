@@ -40,6 +40,7 @@
                     <li><a href="#como-funciona" class="nav-link">Como Funciona</a></li>
                     <li><a href="#sobre-mim" class="nav-link">Sobre Mim</a></li>
                     <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+                    <li><a href="#anamnese" class="nav-link">Ficha & Termo</a></li>
                     <li><a href="#faq" class="nav-link">Dúvidas</a></li>
                 </ul>
             </nav>
@@ -398,6 +399,136 @@
                 <a href="https://api.whatsapp.com/send/?phone=5548984089109&text=Ol%C3%A1%20Laura!%20Li%20seu%20sobre%20mim%20e%20gostaria%20de%20agendar%20uma%20sess%C3%A3o." target="_blank" class="btn btn-primary mt-4">
                     <i class="fa-brands fa-whatsapp"></i> Agendar Consulta com Laura
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Ficha de Anamnese & Termo de Consentimento Digital (TCLE) -->
+    <section class="anamnese-section" id="anamnese">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag"><i class="fa-solid fa-clipboard-check"></i> Primeira Consulta / Cadastro</span>
+                <h2 class="section-title">Ficha de Anamnese & Termo de Consentimento</h2>
+                <p class="section-subtitle">Preencha seus dados iniciais de forma 100% segura e sigilosa de acordo com a Resolução CFP nº 11/2018.</p>
+            </div>
+
+            <div class="anamnese-wrapper">
+                <div class="anamnese-card">
+                    <form id="anamnese-form" onsubmit="handleAnamneseSubmit(event)">
+                        <!-- Passo 1: Dados Pessoais -->
+                        <div class="form-step">
+                            <div class="step-title">
+                                <span class="step-number">1</span>
+                                <h3>Dados Pessoais do Paciente</h3>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="ana-nome"><i class="fa-regular fa-user"></i> Nome Completo:*</label>
+                                    <input type="text" id="ana-nome" class="form-control" placeholder="Seu nome completo" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ana-nasc"><i class="fa-regular fa-calendar"></i> Data de Nascimento:*</label>
+                                    <input type="date" id="ana-nasc" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ana-cpf"><i class="fa-regular fa-id-card"></i> CPF:*</label>
+                                    <input type="text" id="ana-cpf" class="form-control" placeholder="000.000.000-00" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ana-whatsapp"><i class="fa-brands fa-whatsapp"></i> Telefone/WhatsApp:*</label>
+                                    <input type="tel" id="ana-whatsapp" class="form-control" placeholder="(48) 99999-9999" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ana-email"><i class="fa-regular fa-envelope"></i> E-mail:*</label>
+                                    <input type="email" id="ana-email" class="form-control" placeholder="seuemail@exemplo.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ana-cidade"><i class="fa-solid fa-location-dot"></i> Cidade / Estado:*</label>
+                                    <input type="text" id="ana-cidade" class="form-control" placeholder="Ex: Florianópolis / SC" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Passo 2: Contato de Emergência -->
+                        <div class="form-step mt-4">
+                            <div class="step-title">
+                                <span class="step-number">2</span>
+                                <h3>Contato de Emergência</h3>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="ana-emerg-nome"><i class="fa-solid fa-phone"></i> Nome do Contato de Emergência:*</label>
+                                    <input type="text" id="ana-emerg-nome" class="form-control" placeholder="Nome do familiar ou pessoa de confiança" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ana-emerg-relacao"><i class="fa-solid fa-heart"></i> Grau de Parentesco / Relação:*</label>
+                                    <input type="text" id="ana-emerg-relacao" class="form-control" placeholder="Ex: Mãe, Cônjuge, Irmão, Amigo" required>
+                                </div>
+                                <div class="form-group form-grid-full">
+                                    <label for="ana-emerg-tel"><i class="fa-solid fa-mobile-screen"></i> Telefone do Contato de Emergência:*</label>
+                                    <input type="tel" id="ana-emerg-tel" class="form-control" placeholder="(00) 00000-0000" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Passo 3: Histórico e Queixa Principal -->
+                        <div class="form-step mt-4">
+                            <div class="step-title">
+                                <span class="step-number">3</span>
+                                <h3>Histórico Terapêutico & Motivo da Busca</h3>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="ana-ja-fez-terapia"><i class="fa-solid fa-comments"></i> Já fez terapia anteriormente?</label>
+                                    <select id="ana-ja-fez-terapia" class="form-control">
+                                        <option value="Não">Não, é minha primeira vez</option>
+                                        <option value="Sim">Sim, já fiz anteriormente</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ana-medicacao"><i class="fa-solid fa-pills"></i> Faz uso de medicação psiquiátrica?</label>
+                                    <select id="ana-medicacao" class="form-control">
+                                        <option value="Não">Não faço uso</option>
+                                        <option value="Sim">Sim (especificar na mensagem)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="ana-motivo"><i class="fa-solid fa-pen-to-square"></i> Qual o principal motivo pela busca do atendimento psicológico?</label>
+                                <textarea id="ana-motivo" class="form-control" rows="3" placeholder="Conte brevemente o que você busca trabalhar na terapia (ex: ansiedade, estresse, autoconhecimento, luto, etc.)..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Passo 4: Termo de Consentimento Livre e Esclarecido (TCLE) -->
+                        <div class="form-step mt-4">
+                            <div class="step-title">
+                                <span class="step-number">4</span>
+                                <h3>Termo de Consentimento e Sigilo Profissional (TCLE)</h3>
+                            </div>
+                            
+                            <div class="tcle-box">
+                                <h4>Declaração de Sigilo & Condições de Atendimento Online</h4>
+                                <ul>
+                                    <li><strong>1. Sigilo Profissional:</strong> Todas as informações fornecidas durante as sessões são estritamente confidenciais, protegidas pelo Código de Ética do Psicólogo (CFP).</li>
+                                    <li><strong>2. Ambiente Reservado:</strong> O paciente compromete-se a realizar as sessões online em local privado, silencioso e sem interrupções, utilizando fones de ouvido para sua própria privacidade.</li>
+                                    <li><strong>3. Política de Cancelamento:</strong> Cancelamentos ou reagendamentos devem ser comunicados com no mínimo 24 horas de antecedência.</li>
+                                    <li><strong>4. Plataforma Segura:</strong> As sessões serão realizadas via plataforma criptografada (Google Meet / Zoom).</li>
+                                </ul>
+                            </div>
+
+                            <div class="checkbox-group mt-3">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="ana-aceito-termo" required>
+                                    <span>Li e concordo com o <strong>Termo de Consentimento Livre e Esclarecido (TCLE)</strong> e com o sigilo profissional da Dra. Laura Detoni Queiroz (CRP 12/13874).*</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-xl w-100 mt-4">
+                            <i class="fa-brands fa-whatsapp"></i> Enviar Ficha de Cadastro & Agendar no WhatsApp
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
